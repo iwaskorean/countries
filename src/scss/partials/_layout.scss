@@ -1,0 +1,43 @@
+@import './base';
+@import './header';
+@import './card-list';
+@import './search-bar';
+@import './card';
+
+body {
+  background-color: $theme-light-bg;
+  min-height: 90vh;
+}
+
+.container {
+  width: 100%;
+  &--header {
+    @include flex-a-j(center, center);
+    background-color: white;
+    box-shadow: $light-box-shadow;
+    z-index: 13;
+  }
+  &--cardlist {
+    height: 100vh;
+    width: 100%;
+    @include flex-a-j(flex-start, flex-start);
+    flex-direction: column;
+  }
+}
+
+.loader {
+  position: absolute;
+  @include font-c-s-w(rgba(116, 116, 116, 0.664), 3rem, $font-extra-bold);
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-style: italic;
+}
+
+.icon-search {
+  width: 4rem;
+  @include flex-a-j(center, center);
+  img {
+    width: 1rem;
+  }
+}

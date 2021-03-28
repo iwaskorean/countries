@@ -1,0 +1,8 @@
+@import './base';
+
+.cardlist {
+  width: 90%;
+  @include flex-a-j(flex-start, space-between);
+  flex-wrap: wrap;
+  margin: 3rem auto;
+}

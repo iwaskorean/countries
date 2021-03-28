@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+// colors
+$theme-dark-bg: hsl(207, 26%, 17%);
+$theme-dark-elements: hsl(209, 23%, 22%);
+$theme-light-bg: hsl(0, 0%, 98%);
+$theme-light-text: hsl(200, 15%, 8%);
+$theme-light-input: hsl(0, 0%, 52%);
+$white: hsl(0, 0%, 100%);
+// font-weight
+$font-light: 300;
+$font-bold: 600;
+$font-extra-bold: 800;
+// font-size
+$font-size-small: 14px;
+$font-size-large: 16px;
+
+$light-box-shadow: 3px 3px 7px rgba(210, 210, 210, 0.7);
+
+@mixin font-c-s-w($color, $size, $weight) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin flex-a-j($align-items, $justify-content) {
+  display: flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'Nunito Sans', sans-serif;
+  @include font-c-s-w($theme-light-text, 16px, $font-light);
+}

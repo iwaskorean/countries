@@ -1,0 +1,42 @@
+@import './base';
+
+.search-bar {
+  width: 90%;
+  margin: 2rem auto;
+  @include flex-a-j(flex-start, space-between);
+  &__form {
+    width: 40%;
+    @include flex-a-j(center, space-between);
+    background-color: $white;
+    box-shadow: $light-box-shadow;
+    border-radius: 10px;
+    &__input {
+      flex: 1;
+      border-radius: 10px;
+      padding: 1.2rem 0rem;
+      border: none;
+      outline: 0;
+      font-size: 1.1rem;
+    }
+  }
+  &__filter {
+    width: 15rem;
+    font-weight: $font-bold;
+    &__heading {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      background-color: $white;
+    }
+    &__items {
+      width: 15rem;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: $white;
+      position: absolute;
+    }
+    &__item {
+      width: 15rem;
+      margin: 0.3rem 0;
+    }
+  }
+}
