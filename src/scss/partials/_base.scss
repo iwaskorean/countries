@@ -3,6 +3,7 @@
 // colors
 $theme-dark-bg: hsl(207, 26%, 17%);
 $theme-dark-elements: hsl(209, 23%, 22%);
+//
 $theme-light-bg: hsl(0, 0%, 98%);
 $theme-light-text: hsl(200, 15%, 8%);
 $theme-light-input: hsl(0, 0%, 52%);
@@ -16,6 +17,7 @@ $font-size-small: 14px;
 $font-size-large: 16px;
 
 $light-box-shadow: 3px 3px 7px rgba(210, 210, 210, 0.7);
+$dark-box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
 
 @mixin font-c-s-w($color, $size, $weight) {
   color: $color;

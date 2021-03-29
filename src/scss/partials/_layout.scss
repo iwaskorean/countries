@@ -6,22 +6,60 @@
 
 body {
   background-color: $theme-light-bg;
-  min-height: 90vh;
 }
 
 .container {
   width: 100%;
   &--header {
+    transition: all 0.5s;
     @include flex-a-j(center, center);
     background-color: white;
     box-shadow: $light-box-shadow;
-    z-index: 13;
+    &.theme--dark {
+      background-color: $theme-dark-elements;
+      .header {
+        & > * {
+          color: $white;
+        }
+      }
+    }
   }
   &--cardlist {
     height: 100vh;
     width: 100%;
     @include flex-a-j(flex-start, flex-start);
     flex-direction: column;
+    &.theme--dark {
+      background-color: $theme-dark-bg;
+      .cardlist {
+        background-color: $theme-dark-bg;
+        .card {
+          background-color: $theme-dark-elements;
+          box-shadow: $dark-box-shadow;
+          & > * {
+            color: $white;
+          }
+        }
+      }
+      .search-bar {
+        &__form {
+          background-color: $theme-dark-elements;
+          box-shadow: $dark-box-shadow;
+
+          &__input {
+            background-color: $theme-dark-elements;
+            color: $white;
+          }
+        }
+        .search-bar__filter {
+          & > * {
+            background-color: $theme-dark-elements;
+            color: $white;
+            box-shadow: $dark-box-shadow;
+          }
+        }
+      }
+    }
   }
 }
 

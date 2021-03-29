@@ -1,13 +1,18 @@
 import React from 'react';
 import { Country } from './App';
+import CardDetail from './CardDetail';
 
-type Props = {
+interface Props {
   country: Country;
-};
+}
 
 const Card: React.FC<Props> = ({ country }) => {
+  const onCardClick = () => {
+    return <CardDetail></CardDetail>;
+  };
+
   return (
-    <div className="card">
+    <div className="card" onClick={() => onCardClick()}>
       <div className="card__flag">
         <img src={country.flag} alt="" />
       </div>

@@ -7,6 +7,11 @@
   margin: 2.5rem 1rem;
   border-radius: 10px;
   box-shadow: $light-box-shadow;
+  cursor: pointer;
+  transition: all 0.5s;
+  &:hover {
+    transform: scale(1.05);
+  }
   &__flag {
     width: 100%;
     height: 12rem;

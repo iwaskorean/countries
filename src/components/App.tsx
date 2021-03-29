@@ -4,19 +4,26 @@ import CardList from './CardList';
 import axios from 'axios';
 // scss
 import '../scss/main.scss';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import CardDetail from './CardDetail';
 
-export type Country = {
+export interface Country {
   name: string;
   flag: string;
   population: number;
   region: string;
   capital: string;
   alpha3Code: string;
+}
+
+export const cn = (darkTheme: boolean) => {
+  return darkTheme && 'theme--dark';
 };
 
 const App = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
+  const [darkTheme, setDarkTheme] = useState(false);
 
   useEffect(() => {
     getCountries();
@@ -73,16 +80,30 @@ const App = () => {
       });
   };
 
+  const handleTheme = (): void => {
+    setDarkTheme(!darkTheme);
+  };
+
   return (
-    <div className="wrapper">
-      <Header />
-      {loading && <p className="loader">Loading ...</p>}
-      <CardList
-        countries={countries}
-        searchName={searchName}
-        searchRegion={searchRegion}
-      />
-    </div>
+    <>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact>
+            <div className="wrapper">
+              <Header handleTheme={handleTheme} darkTheme={darkTheme} />
+              {loading && <p className="loader">Loading ...</p>}
+              <CardList
+                countries={countries}
+                searchName={searchName}
+                searchRegion={searchRegion}
+                darkTheme={darkTheme}
+              />
+            </div>
+          </Route>
+        </Switch>
+        <Route path="/detail" exact component={CardDetail} />
+      </BrowserRouter>
+    </>
   );
 };
 
