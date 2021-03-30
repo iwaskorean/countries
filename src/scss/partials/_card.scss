@@ -5,6 +5,7 @@
   max-height: 24.6rem;
   background-color: $white;
   margin: 2.5rem 1rem;
+  padding-bottom: 2rem;
   border-radius: 10px;
   box-shadow: $light-box-shadow;
   cursor: pointer;
@@ -27,9 +28,6 @@
     &--medium {
       @include font-c-s-w(#000, 1rem, $font-bold);
       margin: 0.5rem 1rem;
-      &:last-child {
-        margin-bottom: 3rem;
-      }
     }
     &--small {
       font-weight: $font-light;

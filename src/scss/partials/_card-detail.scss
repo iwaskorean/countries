@@ -3,4 +3,104 @@
 .card-detail {
   width: 100%;
   height: 100vh;
+  &__contents {
+    width: 80%;
+    margin: 0 auto;
+    @include flex-a-j(center, flex-start);
+    &__flag {
+      width: 45%;
+      margin-right: 3rem;
+    }
+    &__heading {
+      @include font-c-s-w(#000, 2.5rem, $font-extra-bold);
+      margin-bottom: 1.5rem;
+    }
+    &__items {
+      width: 100%;
+      @include flex-a-j(flex-start, space-between);
+      flex-wrap: wrap;
+      .item {
+        width: 50%;
+        margin: 0.3rem 0;
+        span {
+          &:nth-child(1) {
+            @include font-c-s-w(#000, 1rem, $font-bold);
+          }
+        }
+      }
+    }
+    &__borders {
+      margin-top: 3rem;
+      span {
+        @include font-c-s-w(#000, 1rem, $font-bold);
+      }
+      .borders__container {
+        display: inline-flex;
+        flex-wrap: wrap;
+        .border {
+          font-size: 0.8rem;
+          border-radius: 3px;
+          margin: 0 0.5rem;
+          padding: 0.2rem 0.5rem;
+          background-color: $white;
+          box-shadow: $light-box-shadow;
+        }
+      }
+    }
+  }
+  &.theme--dark {
+    color: $white;
+    background-color: $theme-dark-bg;
+    .card-detail__contents__heading {
+      color: $white;
+    }
+    .card-detail__contents__items {
+      .item {
+        span {
+          &:nth-child(1) {
+            color: $white;
+          }
+        }
+      }
+    }
+    .card-detail__contents__container {
+      .card-detail__contents__borders {
+        span {
+          color: $white;
+        }
+        .borders__container {
+          .border {
+            color: $white;
+            background-color: $theme-dark-elements;
+            box-shadow: $dark-box-shadow;
+          }
+        }
+      }
+    }
+  }
+}
+
+.button__box {
+  width: 80%;
+  margin: 3rem auto;
+}
+
+.button--back {
+  width: 10%;
+  text-align: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  color: #000;
+  background-color: $white;
+  box-shadow: $light-box-shadow;
+  font-weight: $font-bold;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+  &.theme--dark {
+    color: $white;
+    background-color: $theme-dark-elements;
+    box-shadow: $dark-box-shadow;
+  }
 }

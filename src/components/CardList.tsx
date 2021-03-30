@@ -17,8 +17,6 @@ const CardList: React.FC<Props> = ({
   searchRegion,
   darkTheme,
 }) => {
-  console.log();
-
   return (
     <div className={`container container--cardlist ${cn(darkTheme)}`}>
       <SearchBar searchName={searchName} searchRegion={searchRegion} />

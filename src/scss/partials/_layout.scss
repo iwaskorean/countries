@@ -3,6 +3,7 @@
 @import './card-list';
 @import './search-bar';
 @import './card';
+@import './card-detail';
 
 body {
   background-color: $theme-light-bg;
@@ -17,6 +18,7 @@ body {
     box-shadow: $light-box-shadow;
     &.theme--dark {
       background-color: $theme-dark-elements;
+      box-shadow: $dark-box-shadow;
       .header {
         & > * {
           color: $white;

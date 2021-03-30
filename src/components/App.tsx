@@ -101,7 +101,16 @@ const App = () => {
             </div>
           </Route>
         </Switch>
-        <Route path="/detail" exact component={CardDetail} />
+        <Route
+          path="/detail/:countryName"
+          render={(routeProps) => (
+            <CardDetail
+              countryName={routeProps.match.params.countryName}
+              darkTheme={darkTheme}
+              handleTheme={handleTheme}
+            />
+          )}
+        />
       </BrowserRouter>
     </>
   );
