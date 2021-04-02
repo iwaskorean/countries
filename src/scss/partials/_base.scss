@@ -40,4 +40,10 @@ $dark-box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
 html {
   font-family: 'Nunito Sans', sans-serif;
   @include font-c-s-w($theme-light-text, 16px, $font-light);
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+  @media (max-width: 500px) {
+    font-size: 13px;
+  }
 }

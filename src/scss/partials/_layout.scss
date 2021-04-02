@@ -5,17 +5,14 @@
 @import './card';
 @import './card-detail';
 
-body {
-  background-color: $theme-light-bg;
-}
-
 .container {
   width: 100%;
   &--header {
+    position: relative;
     transition: all 0.5s;
-    @include flex-a-j(center, center);
     background-color: white;
     box-shadow: $light-box-shadow;
+    @include flex-a-j(center, center);
     &.theme--dark {
       background-color: $theme-dark-elements;
       box-shadow: $dark-box-shadow;
@@ -27,9 +24,10 @@ body {
     }
   }
   &--cardlist {
-    height: 100vh;
     width: 100%;
+    min-height: 100vh;
     @include flex-a-j(flex-start, flex-start);
+    background-color: $theme-light-bg;
     flex-direction: column;
     &.theme--dark {
       background-color: $theme-dark-bg;
@@ -47,7 +45,6 @@ body {
         &__form {
           background-color: $theme-dark-elements;
           box-shadow: $dark-box-shadow;
-
           &__input {
             background-color: $theme-dark-elements;
             color: $white;
@@ -73,9 +70,9 @@ body {
   text-align: center;
   font-style: italic;
 }
-
 .icon-search {
   width: 4rem;
+  padding: 0 1rem;
   @include flex-a-j(center, center);
   img {
     width: 1rem;

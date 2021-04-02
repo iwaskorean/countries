@@ -1,9 +1,11 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import Header from './Header';
+import { Country } from './App';
 
 interface Props {
+  countries: Country[];
   countryName: string;
   darkTheme: boolean;
   handleTheme: () => void;
@@ -13,6 +15,7 @@ const CardDetail: React.FC<Props> = ({
   countryName,
   darkTheme,
   handleTheme,
+  countries,
 }) => {
   const [countryDetail, setCountryDetail] = useState<any>();
 
@@ -20,8 +23,6 @@ const CardDetail: React.FC<Props> = ({
     axios
       .get(`https://restcountries.eu/rest/v2/name/${countryName}?fullText=true`)
       .then((response) => {
-        console.log(response.data);
-
         setCountryDetail(response.data);
       })
       .catch((err) => {
@@ -32,6 +33,10 @@ const CardDetail: React.FC<Props> = ({
 
   const cn = () => {
     return darkTheme && 'theme--dark';
+  };
+
+  const codeToName = (countries: Country[], code: string) => {
+    return countries.filter((country) => country.alpha3Code === code)[0];
   };
 
   const renderedCountryDetail = () => {
@@ -46,7 +51,6 @@ const CardDetail: React.FC<Props> = ({
             />
             <div className="card-detail__contents__container">
               <p className="card-detail__contents__heading">{countryName}</p>
-
               <div className="card-detail__contents__items">
                 <div className="item">
                   <span>Native Name: </span>
@@ -70,15 +74,13 @@ const CardDetail: React.FC<Props> = ({
                 </div>
                 <div className="item">
                   <span>Languages: </span>
-                  <span>
-                    {countryDetail[0].languages.map((lan: any, i: number) => {
-                      if (i + 1 === countryDetail[0].languages.length) {
-                        return <span key={i}>{lan.name}</span>;
-                      } else {
-                        return <span key={i}>{lan.name} ,</span>;
-                      }
-                    })}
-                  </span>
+                  {countryDetail[0].languages.map((lan: any, i: number) => {
+                    if (i + 1 === countryDetail[0].languages.length) {
+                      return <span key={i}>{lan.name}</span>;
+                    } else {
+                      return <span key={i}>{lan.name}, </span>;
+                    }
+                  })}
                 </div>
                 <div className="item">
                   <span>Sub Region: </span>
@@ -96,7 +98,7 @@ const CardDetail: React.FC<Props> = ({
                     countryDetail[0].borders.map((border: any, i: number) => {
                       return (
                         <div key={i} className="border">
-                          {border}
+                          {codeToName(countries, border).name}
                         </div>
                       );
                     })

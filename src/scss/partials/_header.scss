@@ -14,9 +14,24 @@
     .icon--theme {
       width: 1rem;
       margin-right: 0.5rem;
+      transition: all 0.3s;
     }
     &:hover {
       opacity: 0.8;
+      .icon--theme {
+        transform: rotate(30deg);
+      }
+    }
+  }
+  @media (max-width: 500px) {
+    &__heading {
+      font-size: 1rem;
+    }
+    &__theme-switch {
+      font-size: 0.9rem;
+      .icon--theme {
+        width: 0.8rem;
+      }
     }
   }
 }

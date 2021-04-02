@@ -10,7 +10,9 @@ const Header: React.FC<Props> = ({ handleTheme, darkTheme }) => {
   return (
     <div className={`container container--header ${cn(darkTheme)}`}>
       <div className="header">
-        <p className="header__heading">Where in the world?</p>
+        <a href="/" style={{ textDecoration: 'none' }}>
+          <p className="header__heading">Where in the world?</p>
+        </a>
         <div className="header__theme-switch" onClick={() => handleTheme()}>
           {!darkTheme ? (
             <>

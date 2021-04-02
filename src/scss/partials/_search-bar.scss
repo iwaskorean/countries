@@ -4,6 +4,15 @@
   width: 90%;
   margin: 2rem auto;
   @include flex-a-j(flex-start, space-between);
+  @media (max-width: 500px) {
+    display: block;
+    .search-bar__form {
+      width: 100%;
+    }
+    &__filter {
+      margin-top: 2rem;
+    }
+  }
   &__form {
     width: 40%;
     @include flex-a-j(center, space-between);
@@ -57,6 +66,7 @@
       position: absolute;
       transform: scaleY(0);
       transition: transform 0.1s;
+      z-index: 10;
       &.filter--active {
         transform: scaleY(1);
       }

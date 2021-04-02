@@ -17,7 +17,9 @@ const Card: React.FC<Props> = ({ country }) => {
           <p className="card__heading">{country.name}</p>
           <div className="card__heading--medium">
             Population:{' '}
-            <span className="card__heading--small">{country.population}</span>
+            <span className="card__heading--small">
+              {country.population.toLocaleString('en-US')}
+            </span>
           </div>
           <div className="card__heading--medium">
             Region:{' '}

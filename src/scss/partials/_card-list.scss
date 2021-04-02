@@ -2,8 +2,11 @@
 
 .cardlist {
   width: 100%;
-  @include flex-a-j(flex-start, space-between);
+  @include flex-a-j(flex-start, space-around);
   flex-wrap: wrap;
   margin: 3rem auto;
   padding: 0 4rem;
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 }

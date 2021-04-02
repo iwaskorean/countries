@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 import Header from './Header';
 import CardList from './CardList';
-import axios from 'axios';
+import CardDetail from './CardDetail';
 // scss
 import '../scss/main.scss';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import CardDetail from './CardDetail';
 
 export interface Country {
   name: string;
@@ -24,54 +24,17 @@ const App = () => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
   const [darkTheme, setDarkTheme] = useState(false);
+  const [region, setRegion] = useState('Filter by Region');
 
   useEffect(() => {
     getCountries();
   }, []);
 
-  const searchName = (name: string): void => {
-    if (!name.trim()) {
-      getCountries();
-    } else {
-      getCountryName(name);
-    }
-  };
-
-  const searchRegion = (region: string): void => {
-    getCountryRegion(region);
-  };
-
-  const getCountries = (): void => {
-    axios
+  const getCountries = async (): Promise<void> => {
+    await axios
       .get('https://restcountries.eu/rest/v2/all')
-      .then((response) => {
-        setCountries(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert('It might be API problem... Please try again.');
-      });
-  };
-
-  const getCountryName = (name: string): void => {
-    axios
-      .get(`https://restcountries.eu/rest/v2/name/${name}`)
-      .then((response) => {
-        setCountries(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        alert('Enter valid country name!');
-      });
-  };
-
-  const getCountryRegion = (region: string): void => {
-    axios
-      .get(`https://restcountries.eu/rest/v2/region/${region}`)
-      .then((response) => {
-        setCountries(response.data);
+      .then((res) => {
+        setCountries(res.data);
         setLoading(false);
       })
       .catch((error) => {
@@ -84,6 +47,10 @@ const App = () => {
     setDarkTheme(!darkTheme);
   };
 
+  const handleRegion = (region: string): void => {
+    setRegion(region);
+  };
+
   return (
     <>
       <BrowserRouter>
@@ -94,9 +61,9 @@ const App = () => {
               {loading && <p className="loader">Loading ...</p>}
               <CardList
                 countries={countries}
-                searchName={searchName}
-                searchRegion={searchRegion}
                 darkTheme={darkTheme}
+                handleRegion={handleRegion}
+                region={region}
               />
             </div>
           </Route>
@@ -108,6 +75,7 @@ const App = () => {
               countryName={routeProps.match.params.countryName}
               darkTheme={darkTheme}
               handleTheme={handleTheme}
+              countries={countries}
             />
           )}
         />

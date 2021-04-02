@@ -1,31 +1,27 @@
 import { useState } from 'react';
 
 interface Props {
-  searchName: (name: string) => void;
-  searchRegion: (name: string) => void;
+  region: string;
+  handleFilter: (region: string) => void;
+  searchNameTest: (name: string) => void;
 }
 
 const regions: string[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
-const filterMsg: string = 'Filter by Region';
+const filterMsg = 'Filter by Region';
 
-const SearchBar: React.FC<Props> = ({ searchName, searchRegion }) => {
+const SearchBar: React.FC<Props> = ({
+  handleFilter,
+  searchNameTest,
+  region,
+}) => {
   const [name, setName] = useState('');
-  const [region, setRegion] = useState(filterMsg);
+  const [regionName, setRegionName] = useState(region);
   const [filterActive, setFilterActive] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    searchName(name);
-    setName('');
-    setRegion('Filter by Region');
-    setFilterActive(false);
-  };
-
   const onClearFilter = (): void => {
-    searchName('');
-    setName('');
-    setRegion('Filter by Region');
+    setRegionName(filterMsg);
     setFilterActive(false);
+    handleFilter(filterMsg);
   };
 
   const cn = () => {
@@ -34,7 +30,7 @@ const SearchBar: React.FC<Props> = ({ searchName, searchRegion }) => {
 
   return (
     <div className="search-bar">
-      <form className="search-bar__form" onSubmit={(e) => onSubmit(e)}>
+      <form className="search-bar__form" onSubmit={(e) => e.preventDefault()}>
         <div className="icon-search">
           <img src="./assets/icon-search.png" alt="" />
         </div>
@@ -43,7 +39,10 @@ const SearchBar: React.FC<Props> = ({ searchName, searchRegion }) => {
           type="text"
           value={name}
           placeholder="Search for a country ..."
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+            searchNameTest(e.target.value);
+          }}
         />
       </form>
       <div className="search-bar__filter">
@@ -51,30 +50,28 @@ const SearchBar: React.FC<Props> = ({ searchName, searchRegion }) => {
           className={`search-bar__filter__heading ${cn()}`}
           onClick={() => setFilterActive(!filterActive)}
         >
-          <p>{region}</p>
+          <p>{regionName}</p>
           <img className="icon--arrow" src="./assets/icon-arrow.png" alt="" />
         </div>
         <div className={`search-bar__filter__items ${cn()}`}>
-          {regions.map((region) => {
+          {regions.map((regionName) => {
             return (
               <div
-                key={region}
+                key={regionName}
                 className={`search-bar__filter__item`}
                 onClick={() => {
-                  searchRegion(region);
-                  setRegion(region);
+                  setRegionName(regionName);
                   setFilterActive(false);
+                  handleFilter(regionName);
                 }}
               >
-                {region}
+                {regionName}
               </div>
             );
           })}
-          {region !== filterMsg && (
-            <div className="clear" onClick={() => onClearFilter()}>
-              Clear
-            </div>
-          )}
+          <div className="clear" onClick={() => onClearFilter()}>
+            ALL
+          </div>
         </div>
       </div>
     </div>
