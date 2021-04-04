@@ -14,6 +14,9 @@
     box-shadow: $light-box-shadow;
     @include flex-a-j(center, center);
     &.theme--dark {
+      .header__heading {
+        color: $white;
+      }
       background-color: $theme-dark-elements;
       box-shadow: $dark-box-shadow;
       .header {

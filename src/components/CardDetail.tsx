@@ -97,9 +97,15 @@ const CardDetail: React.FC<Props> = ({
                   {countryDetail[0].borders.length > 0 ? (
                     countryDetail[0].borders.map((border: any, i: number) => {
                       return (
-                        <div key={i} className="border">
-                          {codeToName(countries, border).name}
-                        </div>
+                        <Link
+                          key={i}
+                          to={`/detail/${codeToName(countries, border).name}`}
+                          style={{ textDecoration: 'none' }}
+                        >
+                          <div className="border">
+                            {codeToName(countries, border).name}
+                          </div>
+                        </Link>
                       );
                     })
                   ) : (

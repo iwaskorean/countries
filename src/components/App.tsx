@@ -67,18 +67,18 @@ const App = () => {
               />
             </div>
           </Route>
+          <Route
+            path="/detail/:countryName"
+            render={(routeProps) => (
+              <CardDetail
+                countryName={routeProps.match.params.countryName}
+                darkTheme={darkTheme}
+                handleTheme={handleTheme}
+                countries={countries}
+              />
+            )}
+          />
         </Switch>
-        <Route
-          path="/detail/:countryName"
-          render={(routeProps) => (
-            <CardDetail
-              countryName={routeProps.match.params.countryName}
-              darkTheme={darkTheme}
-              handleTheme={handleTheme}
-              countries={countries}
-            />
-          )}
-        />
       </BrowserRouter>
     </>
   );

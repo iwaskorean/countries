@@ -1,6 +1,10 @@
 ## REST Countries API with color theme switcher
 
-- The Countries APP using REST countires api
+![img](https://res.cloudinary.com/dz209s6jk/image/upload/v1554827486/Challenges/wirxeocmd6tpnn9c5oqc.jpg)
+
+<br>
+
+- The Countries App using REST countries api
 
 - Users Should be able to :
 
@@ -12,11 +16,13 @@
 
   - Click on a country to see more detailed information on a separate page
 
+  - Click through to the border countries on the detail page
+
   - Toggle the color scheme between light and dark mode 
 
-  <br>
+<br>
 
-  <br>
+<br>
 
 ## My solution
 
@@ -34,7 +40,7 @@ A Live Site is [*here*](https://rest-countries-api-with-color-theme-switcher-bet
 
 <br>
 
-#### Project Setup(Local)
+#### Project Installation(Local)
 
 ```
 npm install
@@ -45,8 +51,6 @@ or
 ```
 yarn
 ```
-
-<br>
 
 <br>
 
