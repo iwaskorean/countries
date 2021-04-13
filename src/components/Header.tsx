@@ -1,6 +1,3 @@
-import React from 'react';
-import { cn } from './App';
-
 interface Props {
   handleTheme: () => void;
   darkTheme: boolean;
@@ -8,11 +5,9 @@ interface Props {
 
 const Header: React.FC<Props> = ({ handleTheme, darkTheme }) => {
   return (
-    <div className={`container container--header ${cn(darkTheme)}`}>
+    <div className={`container container--header `}>
       <div className="header">
-        <a href="/" style={{ textDecoration: 'none' }}>
-          <p className="header__heading">Where in the world?</p>
-        </a>
+        <p className="header__heading">Where in the world?</p>
         <div className="header__theme-switch" onClick={() => handleTheme()}>
           {!darkTheme ? (
             <>

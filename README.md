@@ -54,10 +54,15 @@ yarn
 
 <br>
 
+<br>
+
+- ##### Todo 
+
+  - Theme switch using localstorage
+  - Pagination
+
 ------
 
 ###### This Challenge is from [*Frontend Mentor*](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
 ###### You can check my solutions of Frontend Mentor Challenges [*here*](https://github.com/SewookHan/frontend-mentor-challenges). 
-
-<br>

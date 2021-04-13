@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Country } from './App';
 
@@ -9,7 +8,10 @@ interface Props {
 const Card: React.FC<Props> = ({ country }) => {
   return (
     <>
-      <Link to={`/detail/${country.name}`} style={{ textDecoration: 'none' }}>
+      <Link
+        to={`/detail/${country.alpha3Code}`}
+        style={{ textDecoration: 'none' }}
+      >
         <div className="card">
           <div className="card__flag">
             <img src={country.flag} alt="" />

@@ -6,7 +6,7 @@ interface Props {
   searchNameTest: (name: string) => void;
 }
 
-const regions: string[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+const regions = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
 const filterMsg = 'Filter by Region';
 
 const SearchBar: React.FC<Props> = ({

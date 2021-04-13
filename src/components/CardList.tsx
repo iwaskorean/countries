@@ -1,22 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import SearchBar from './SearchBar';
 import Card from './Card';
-import { Country, cn } from './App';
+import { Country } from './App';
 import axios from 'axios';
 
 interface Props {
   countries: Country[];
-  darkTheme: boolean;
+  // darkTheme: boolean;
   handleRegion: (region: string) => void;
   region: string;
 }
 
-const CardList: React.FC<Props> = ({
-  countries,
-  darkTheme,
-  region,
-  handleRegion,
-}) => {
+const CardList: React.FC<Props> = ({ countries, region, handleRegion }) => {
   const [fetchedCountries, setFetchedCountries] = useState<Country[]>();
   const [filteredCountries, setFilteredCountries] = useState<Country[]>();
   const [name, setName] = useState('');
@@ -54,7 +49,7 @@ const CardList: React.FC<Props> = ({
 
   return (
     <>
-      <div className={`container container--cardlist ${cn(darkTheme)}`}>
+      <div className={`container container--cardlist `}>
         <SearchBar
           handleFilter={handleFilter}
           searchNameTest={searchNameTest}
