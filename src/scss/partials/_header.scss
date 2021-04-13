@@ -4,13 +4,13 @@
   @include flex-a-j(center, space-between);
   width: 90%;
   &__heading {
-    @include font-c-s-w($theme-light-text, 1.5rem, $font-extra-bold);
+    @include font-c-s-w(var(--text), 1.5rem, $font-extra-bold);
     margin: 1.2rem 0;
   }
   &__theme-switch {
     cursor: pointer;
     @include flex-a-j(center, space-between);
-    @include font-c-s-w($theme-light-text, 1rem, $font-bold);
+    @include font-c-s-w(var(--text), 1rem, $font-bold);
     .icon--theme {
       width: 1rem;
       margin-right: 0.5rem;

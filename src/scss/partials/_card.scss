@@ -2,12 +2,12 @@
 
 .card {
   width: 16rem;
-  max-height: 25rem;
-  background-color: $white;
+  height: 21rem;
+  background-color: var(--elements);
   margin: 2.5rem 2rem;
   padding-bottom: 2rem;
   border-radius: 10px;
-  box-shadow: $light-box-shadow;
+  box-shadow: var(--box-shadow);
   cursor: pointer;
   transition: all 0.3s;
   &:hover {
@@ -26,10 +26,10 @@
     }
   }
   &__heading {
-    @include font-c-s-w(#000, 1.1rem, $font-extra-bold);
+    @include font-c-s-w(var(--text), 1.1rem, $font-extra-bold);
     margin: 1.5rem 1rem;
     &--medium {
-      @include font-c-s-w(#000, 0.9rem, $font-bold);
+      @include font-c-s-w(var(--text), 0.9rem, $font-bold);
       margin: 0.5rem 1rem;
     }
     &--small {

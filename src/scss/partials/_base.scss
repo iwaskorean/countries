@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
-// colors
-$theme-dark-bg: hsl(207, 26%, 17%);
-$theme-dark-elements: hsl(209, 23%, 22%);
-//
-$theme-light-bg: hsl(0, 0%, 98%);
-$theme-light-text: hsl(200, 15%, 8%);
-$theme-light-input: hsl(0, 0%, 52%);
-$white: hsl(0, 0%, 100%);
 // font-weight
 $font-light: 300;
 $font-bold: 600;
@@ -16,8 +8,22 @@ $font-extra-bold: 800;
 $font-size-small: 14px;
 $font-size-large: 16px;
 
-$light-box-shadow: 3px 3px 7px rgba(210, 210, 210, 0.7);
-$dark-box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
+body {
+  // light theme
+  --elements: hsl(0, 0%, 100%);
+  --background: hsl(0, 0%, 97%);
+  --input: hsl(0, 0%, 52%);
+  --text: hsl(200, 15%, 8%);
+  --box-shadow: 3px 3px 7px rgba(210, 210, 210, 0.7);
+  // dark theme
+  &.dark {
+    --background: hsl(207, 26%, 17%);
+    --elements: hsl(209, 23%, 22%);
+    --input: hsl(209, 23%, 22%);
+    --text: hsl(0, 0%, 100%);
+    --box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
+  }
+}
 
 @mixin font-c-s-w($color, $size, $weight) {
   color: $color;
@@ -39,7 +45,7 @@ $dark-box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.7);
 
 html {
   font-family: 'Nunito Sans', sans-serif;
-  @include font-c-s-w($theme-light-text, 16px, $font-light);
+  @include font-c-s-w(var(--text), 16px, $font-light);
   @media (max-width: 768px) {
     font-size: 14px;
   }

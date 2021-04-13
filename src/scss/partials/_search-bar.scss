@@ -16,11 +16,13 @@
   &__form {
     width: 40%;
     @include flex-a-j(center, space-between);
-    background-color: $white;
-    box-shadow: $light-box-shadow;
+    background-color: var(--elements);
+    box-shadow: var(--box-shadow);
     border-radius: 10px;
     transition: all 0.5s;
     &__input {
+      color: var(--text);
+      background-color: var(--elements);
       transition: all 0.5s;
       flex: 1;
       border-radius: 10px;
@@ -33,15 +35,16 @@
   &__filter {
     width: 15rem;
     font-weight: $font-bold;
+    color: var(--text);
     & > * {
-      box-shadow: $light-box-shadow;
+      box-shadow: var(--box-shadow);
       border-radius: 5px;
     }
     &__heading {
       @include flex-a-j(center, space-between);
       width: 100%;
       padding: 1rem;
-      background-color: $white;
+      background-color: var(--elements);
       cursor: pointer;
       transition: all 0.5s;
       &:hover {
@@ -62,7 +65,7 @@
       width: 15rem;
       margin-top: 0.5rem;
       padding: 0.5rem 1rem;
-      background-color: $white;
+      background-color: var(--elements);
       position: absolute;
       transform: scaleY(0);
       transition: transform 0.1s;

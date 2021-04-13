@@ -10,58 +10,16 @@
   &--header {
     position: relative;
     transition: all 0.5s;
-    background-color: white;
-    box-shadow: $light-box-shadow;
+    background-color: var(--elements);
+    box-shadow: var(--box-shadow);
     @include flex-a-j(center, center);
-    &.theme--dark {
-      .header__heading {
-        color: $white;
-      }
-      background-color: $theme-dark-elements;
-      box-shadow: $dark-box-shadow;
-      .header {
-        & > * {
-          color: $white;
-        }
-      }
-    }
   }
   &--cardlist {
     width: 100%;
     min-height: 100vh;
     @include flex-a-j(flex-start, flex-start);
-    background-color: $theme-light-bg;
+    background-color: var(--background);
     flex-direction: column;
-    &.theme--dark {
-      background-color: $theme-dark-bg;
-      .cardlist {
-        background-color: $theme-dark-bg;
-        .card {
-          background-color: $theme-dark-elements;
-          box-shadow: $dark-box-shadow;
-          & > * {
-            color: $white;
-          }
-        }
-      }
-      .search-bar {
-        &__form {
-          background-color: $theme-dark-elements;
-          box-shadow: $dark-box-shadow;
-          &__input {
-            background-color: $theme-dark-elements;
-            color: $white;
-          }
-        }
-        .search-bar__filter {
-          & > * {
-            background-color: $theme-dark-elements;
-            color: $white;
-            box-shadow: $dark-box-shadow;
-          }
-        }
-      }
-    }
   }
 }
 
