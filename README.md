@@ -1,68 +1,66 @@
-## REST Countries API with color theme switcher
+# REST Countries API with color theme switcher
 
-![img](https://res.cloudinary.com/dz209s6jk/image/upload/v1554827486/Challenges/wirxeocmd6tpnn9c5oqc.jpg)
+The Countries App using RESET Countries API
 
-<br>
+Rest countries API를 사용해 만든 나라 검색 및 정보 제공 앱입니다.
 
-- The Countries App using REST countries api
 
-- Users Should be able to :
 
-  - See all countries from the API on the homepage
+*Users Should be able to :*
 
-  - Search for a country using an `input` field
+- See all countries from the API on the homepage
 
-  - Filter countries by region
+- Search for a country using an `input` field
 
-  - Click on a country to see more detailed information on a separate page
+- Filter countries by region
 
-  - Click through to the border countries on the detail page
+- Click on a country to see more detailed information on a separate page
 
-  - Toggle the color scheme between light and dark mode 
+- Click through to the border countries on the detail page
 
-<br>
+- Toggle the color scheme between light and dark mode 
 
 <br>
 
-## My solution
+## Preview
 
-A Live Site is [*here*](https://rest-countries-api-with-color-theme-switcher-beta.vercel.app/).
+![preview](https://github.com/SewookHan/rest-countries-api-with-color-theme-switcher/blob/main/preview.gif)
 
 <br>
 
-#### Tech Stack
+## Tech stack
 
 - React
-
 - TypeScript
-
 - Sass
 
 <br>
 
-#### Project Installation(Local)
+## Set up
 
-```
-npm install
-```
-
-or
+Clone this repo and
 
 ```
 yarn
 ```
 
-<br>
+or
+
+```
+npm install
+```
 
 <br>
 
-- ##### Todo 
+## Demo
 
-  - Theme switch using localstorage
-  - Pagination
+[Live site](https://rest-countries-api-with-color-theme-switcher-beta.vercel.app/)
+
+<br>
 
 ------
 
 ###### This Challenge is from [*Frontend Mentor*](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
 
 ###### You can check my solutions of Frontend Mentor Challenges [*here*](https://github.com/SewookHan/frontend-mentor-challenges). 
+
