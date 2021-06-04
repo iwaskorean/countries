@@ -1,3 +1,5 @@
+import ThemeSwitch from './ThemeSwitch';
+
 interface Props {
   handleTheme: () => void;
   darkTheme: boolean;
@@ -11,17 +13,11 @@ const Header: React.FC<Props> = ({ handleTheme, darkTheme }) => {
         <div className="header__theme-switch" onClick={() => handleTheme()}>
           {!darkTheme ? (
             <>
-              <img
-                className="icon--theme"
-                src="./assets/icon-moon.png"
-                alt=""
-              />
-              <p>Dark Mode</p>
+              <ThemeSwitch src="./assets/icon-moon.png" title="Dark Mode" />
             </>
           ) : (
             <>
-              <img className="icon--theme" src="./assets/icon-sun.png" alt="" />
-              <p>Light Mode</p>
+              <ThemeSwitch src="./assets/icon-sun.png" title="Light Mode" />
             </>
           )}
         </div>

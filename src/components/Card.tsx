@@ -18,17 +18,17 @@ const Card: React.FC<Props> = ({ country }) => {
           </div>
           <p className="card__heading">{country.name}</p>
           <div className="card__heading--medium">
-            Population:{' '}
+            Population:
             <span className="card__heading--small">
               {country.population.toLocaleString('en-US')}
             </span>
           </div>
           <div className="card__heading--medium">
-            Region:{' '}
+            Region:
             <span className="card__heading--small">{country.region}</span>
           </div>
           <div className="card__heading--medium">
-            Capital:{' '}
+            Capital:
             <span className="card__heading--small">{country.capital}</span>
           </div>
         </div>
