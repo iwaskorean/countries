@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import SearchBar from './SearchBar';
 import Card from './Card';
-import Pagenation from './Pagenation';
+import Pagination from 'rc-pagination';
+import 'rc-pagination/assets/index.css';
 import { Country } from './App';
 
 interface Props {
@@ -31,6 +32,7 @@ const CardList: React.FC<Props> = ({ countries, region, handleRegion }) => {
     } else {
       setFilteredCountries(fetchedCountries);
     }
+    setCurrentPage(1);
   }, [region, fetchedCountries]);
 
   useEffect(() => {
@@ -68,10 +70,12 @@ const CardList: React.FC<Props> = ({ countries, region, handleRegion }) => {
           {currentCountries?.map((country, i) => {
             return <Card key={i} country={country} />;
           })}
-          <Pagenation
-            countriesPerPage={countriesPerPage}
-            totalCountries={filteredCountries?.length}
-            paginate={paginate}
+          <Pagination
+            className="pagination"
+            current={currentPage}
+            total={filteredCountries?.length}
+            pageSize={countriesPerPage}
+            onChange={paginate}
           />
         </div>
       </div>

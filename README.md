@@ -1,24 +1,14 @@
 # REST Countries API with color theme switcher
 
-The Countries App using RESET Countries API
+The Countries App using React TypeScript and REST Countries API
 
-Rest countries API를 사용해 만든 나라 검색 및 정보 제공 앱입니다.
+리액트, 타입스크립트, Rest countries API를 사용해 만든 나라 검색 및 정보 제공 앱입니다.
 
+<br>
 
+## Live Demo
 
-*Users Should be able to :*
-
-- See all countries from the API on the homepage
-
-- Search for a country using an `input` field
-
-- Filter countries by region
-
-- Click on a country to see more detailed information on a separate page
-
-- Click through to the border countries on the detail page
-
-- Toggle the color scheme between light and dark mode 
+You can check live demo [here](https://github.com/SewookHan/chat-app-with-rooms).
 
 <br>
 
@@ -28,33 +18,38 @@ Rest countries API를 사용해 만든 나라 검색 및 정보 제공 앱입니
 
 <br>
 
-## Tech stack
+## Tech and libraries
 
-- React
+- React(hooks, router)
 - TypeScript
 - Sass
+- Axios
+- Rc Pagination
 
 <br>
 
-## Set up
+## Getting Started
 
-Clone this repo and
+1. Clone this repo
 
-```
-yarn
-```
+   ```
+   git clone https://github.com/SewookHan/rest-countries-api-with-color-theme-switcher.git
+   ```
 
-or
+2. Install
 
-```
-npm install
-```
+   ```
+   cd rest-countries-api-with-color-theme-switcher
+   yarn or npm install
+   ```
+
+3. start
+
+   ```
+   yarn start or npm run start
+   ```
 
 <br>
-
-## Demo
-
-[Live site](https://rest-countries-api-with-color-theme-switcher-beta.vercel.app/)
 
 <br>
 

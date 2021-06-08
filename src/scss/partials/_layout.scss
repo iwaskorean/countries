@@ -39,3 +39,8 @@
     width: 1rem;
   }
 }
+
+.pagination {
+  width: 100%;
+  @include flex-a-j(center, center);
+}
