@@ -6,7 +6,7 @@ import CardDetailItem from './CardDetailItem';
 import CardDetailBorders from './CardDetailBorders';
 import CardDetailLaunguages from './CardDetailLaunguages';
 import CardDetailFlag from './CardDetailFlag';
-import { Country } from '../App';
+import { Country } from '../../App';
 
 interface Props {
   countries: Country[];

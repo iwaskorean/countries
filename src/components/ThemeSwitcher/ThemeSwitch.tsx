@@ -1,5 +1,3 @@
-import React from 'react';
-
 const ThemeSwitch = ({ src, title }: { src: string; title: string }) => {
   return (
     <>

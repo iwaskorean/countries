@@ -1,5 +1,5 @@
 import React from 'react';
-import { Country } from '../App';
+import { Country } from '../../App';
 import { Link } from 'react-router-dom';
 
 interface Props {

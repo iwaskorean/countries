@@ -1,4 +1,4 @@
-@import './base';
+@import '../../scss/base';
 
 .header {
   @include flex-a-j(center, space-between);
