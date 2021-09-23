@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import SearchBar from './SearchBar';
-import Card from './Card';
+import SearchBar from '../SearchBar/SearchBar';
+import Card from '../Card/Card';
 import Pagination from 'rc-pagination';
 import 'rc-pagination/assets/index.css';
-import { Country } from '../App';
+import { Country } from '../../App';
 
 interface Props {
   countries: Country[];
