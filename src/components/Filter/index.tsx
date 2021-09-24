@@ -1,4 +1,4 @@
-import { Container, Frame, Heading, Text, Icon } from './styles/Filter';
+import { Container, Frame, Heading, Item, Icon, List } from './styles/Filter';
 
 export default function Filter({
   children,
@@ -29,11 +29,11 @@ Filter.ItemList = function FilterItemList({
 }: {
   children: JSX.Element | JSX.Element[];
 }) {
-  return <Text>{children}</Text>;
+  return <List>{children}</List>;
 };
 
 Filter.Region = function FIlterRegion({ children }: { children: string }) {
-  return <Text>{children}</Text>;
+  return <Item>{children}</Item>;
 };
 
 Filter.Icon = function FilterIcon({ src }: { src: string }) {
