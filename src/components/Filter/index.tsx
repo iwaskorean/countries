@@ -32,8 +32,14 @@ Filter.ItemList = function FilterItemList({
   return <List>{children}</List>;
 };
 
-Filter.Region = function FIlterRegion({ children }: { children: string }) {
-  return <Item>{children}</Item>;
+Filter.Region = function FIlterRegion({
+  children,
+  onClick,
+}: {
+  children: string;
+  onClick?: () => void;
+}) {
+  return <Item onClick={onClick}>{children}</Item>;
 };
 
 Filter.Icon = function FilterIcon({ src }: { src: string }) {

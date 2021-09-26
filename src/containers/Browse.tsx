@@ -1,25 +1,38 @@
+import { useState } from 'react';
 import { SearchBar, Filter } from '../components';
+import { REGIONS } from '../fixtures/regions';
 
 export default function BrowseContainer() {
+  const [currentRegion, setCurrentRegion] = useState('Filter by Region');
+  const [term, setTerm] = useState('');
+
   return (
     <>
       <SearchBar>
-        <SearchBar.Form>
-          <SearchBar.Icon />
-          <SearchBar.Input type="text" />
+        <SearchBar.Form onSubmit={(e) => e.preventDefault()}>
+          <SearchBar.Icon src="./assets/icon-search.png" />
+          <SearchBar.Input
+            type="text"
+            value={term}
+            onChange={({ target }) => setTerm(target.value)}
+          />
         </SearchBar.Form>
         <Filter>
           <Filter.Frame>
             <Filter.Heading>
-              <Filter.Region>Filter by Region</Filter.Region>
+              <Filter.Region>{currentRegion}</Filter.Region>
+              <Filter.Icon src="./assets/icon-arrow.png" />
             </Filter.Heading>
-            <Filter.Icon src="" />
           </Filter.Frame>
           <Filter.ItemList>
-            <Filter.Region>Region 1</Filter.Region>
-            <Filter.Region>Region 2</Filter.Region>
-            <Filter.Region>Region 3</Filter.Region>
-            <Filter.Region>Region 4</Filter.Region>
+            {REGIONS.map((region) => (
+              <Filter.Region
+                key={region}
+                onClick={() => setCurrentRegion(region)}
+              >
+                {region}
+              </Filter.Region>
+            ))}
           </Filter.ItemList>
         </Filter>
       </SearchBar>
