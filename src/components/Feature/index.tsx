@@ -1,4 +1,11 @@
-import { Container, Group, Title, Name, Text } from './styles/Feature';
+import {
+  Container,
+  Group,
+  Title,
+  Name,
+  Text,
+  PlainText,
+} from './styles/Feature';
 
 export default function Feature({
   children,
@@ -11,7 +18,7 @@ export default function Feature({
 Feature.Group = function FeatureGroup({
   children,
 }: {
-  children: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
 }) {
   return <Group>{children}</Group>;
 };
@@ -27,11 +34,15 @@ Feature.Name = function FeatureName({ children }: { children: string }) {
 Feature.Property = function FeatureProperty({
   children,
 }: {
-  children: string;
+  children?: string;
 }) {
   return <Text>{children}</Text>;
 };
 
-Feature.Value = function FeatureValue({ children }: { children: string }) {
-  return <Text>{children}</Text>;
+Feature.Value = function FeatureValue({
+  children,
+}: {
+  children?: string | string[];
+}) {
+  return <PlainText>{children}</PlainText>;
 };

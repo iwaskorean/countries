@@ -1,4 +1,4 @@
-import { Container, Flag, Group } from './styles/Card';
+import { Container, Flag, FlagImage, Group } from './styles/Card';
 
 export default function Card({
   children,
@@ -16,8 +16,12 @@ Card.Item = function CardItem({
   return <Container>{children}</Container>;
 };
 
-Card.Flag = function CardFlag({ children }: { children?: any }) {
-  return <Flag>{children}</Flag>;
+Card.Flag = function CardFlag({ src, alt }: { src: string; alt?: string }) {
+  return (
+    <Flag>
+      <FlagImage src={src} alt={alt} />
+    </Flag>
+  );
 };
 
 Card.Contents = function CardContents({

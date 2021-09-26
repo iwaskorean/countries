@@ -2,9 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
-
-
 :root {
   --font-light: 300;
   --font-bold: 600;
@@ -35,9 +32,10 @@ export const GlobalStyle = createGlobalStyle`
 html {
   width:100%;
   min-height: 100vh;
-  
   font-family: 'Nunito Sans', sans-serif;
-  @include font-c-s-w(var(--text), 16px, $font-light);
+  @media(min-width:1024px) {
+    font-size: 18px;
+  }
   @media (max-width: 768px) {
     font-size: 14px;
   }
@@ -46,20 +44,22 @@ html {
   }
 }
 
-body {
+.pagination {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3rem 0;
 
-}
+  > * {
+    font-size: 1rem;
+  }
 
-
-@mixin font-c-s-w($color, $size, $weight) {
-  color: $color;
-  font-size: $size;
-  font-weight: $weight;
-}
-
-@mixin flex-a-j($align-items, $justify-content) {
-  display: flex;
-  align-items: $align-items;
-  justify-content: $justify-content;
+  li {
+    width:2.5rem;
+    height: 2.5rem;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
 }
 `;
