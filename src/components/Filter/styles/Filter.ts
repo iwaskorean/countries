@@ -1,11 +1,33 @@
 import styled from 'styled-components';
 
+export const List = styled.div`
+  display: none;
+  width: 15rem;
+  position: absolute;
+  z-index: 1000;
+  box-shadow: var(--light-box-shadow);
+
+  // ### Theme
+  background-color: var(--light-elements);
+`;
+
 export const Container = styled.div`
   width: 15rem;
   font-weight: $font-bold;
   color: var(--text);
   background-color: var(--light-elements);
   box-shadow: var(--light-box-shadow);
+
+  &:hover {
+    ${List} {
+      display: block;
+    }
+    div {
+      img {
+        transform: rotate(0deg);
+      }
+    }
+  }
 `;
 
 export const Frame = styled.div``;
@@ -21,18 +43,7 @@ export const Heading = styled.div`
   transition: all 0.1s;
   &:hover {
     opacity: 0.7;
-    img {
-      transform: rotate(0deg);
-    }
   }
-`;
-
-export const List = styled.div`
-  width: 15rem;
-  margin-top: 1.5rem;
-
-  // ### Theme
-  background-color: var(--light-elements);
 `;
 
 // ### Have to Fix
