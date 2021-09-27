@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Icon = styled.img`
+  width: 1rem;
+  margin-right: 0.5rem;
+  transition: transform 0.3s;
+`;
+
 export const Container = styled.div`
   display: flex;
   align-items: center;
@@ -11,8 +17,8 @@ export const Container = styled.div`
 
   &:hover {
     opacity: 0.75;
-    .icon--theme {
-      transform: rotate(30deg);
+    ${Icon} {
+      transform: rotate(25deg);
     }
   }
 
@@ -24,12 +30,6 @@ export const Container = styled.div`
       }
     }
   }
-`;
-
-export const Icon = styled.img`
-  width: 1rem;
-  margin-right: 0.5rem;
-  transition: all 0.3s;
 `;
 
 export const Text = styled.h3`

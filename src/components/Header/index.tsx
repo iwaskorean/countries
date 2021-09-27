@@ -1,4 +1,4 @@
-import { Container, Frame, Title } from './styles/Header';
+import { Container, Frame, Logo } from './styles/Header';
 
 export default function Header({ children }: { children: any }) {
   return <Container>{children}</Container>;
@@ -12,6 +12,12 @@ Header.Frame = function HeaderFrame({
   return <Frame>{children}</Frame>;
 };
 
-Header.Title = function HeaderTitle({ children }: { children: string }) {
-  return <Title>{children}</Title>;
+Header.Logo = function HeaderLogo({
+  children,
+  to,
+}: {
+  children: string;
+  to: string;
+}) {
+  return <Logo to={to}>{children}</Logo>;
 };

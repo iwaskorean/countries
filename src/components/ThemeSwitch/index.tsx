@@ -8,10 +8,15 @@ export default function ThemeSwitch({
   return <Container>{children}</Container>;
 }
 
+// Theme
 ThemeSwitch.Icon = function ThemeSwitchIcon({ theme }: { theme: string }) {
-  return theme === 'light' ? <Icon src="" alt="" /> : <Icon src="" alt="" />;
+  return theme === 'light' ? (
+    <Icon src="./assets/icon-moon.png" alt="" />
+  ) : (
+    <Icon src="./assets/icon-sun.png" alt="" />
+  );
 };
 
 ThemeSwitch.Text = function ThemeSwitchIcon({ theme }: { theme: string }) {
-  return <Text>{theme === 'light' ? 'Light' : 'Dark'} Mode</Text>;
+  return <Text>{theme === 'light' ? 'Dark' : 'Light'} Mode</Text>;
 };
