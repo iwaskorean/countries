@@ -1,10 +1,19 @@
 import { useState } from 'react';
 import { SearchBar, Filter } from '../components';
 import { REGIONS } from '../fixtures/regions';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../store';
+import { setFilter } from '../store/filter';
 
 export default function BrowseContainer() {
-  const [currentRegion, setCurrentRegion] = useState('Filter by Region');
   const [term, setTerm] = useState('');
+
+  const { region } = useSelector((state: RootState) => state.filter);
+  const dispatch = useDispatch();
+
+  const handleFilter = (region: string) => {
+    dispatch(setFilter(region));
+  };
 
   return (
     <>
@@ -20,16 +29,13 @@ export default function BrowseContainer() {
         <Filter>
           <Filter.Frame>
             <Filter.Heading>
-              <Filter.Region>{currentRegion}</Filter.Region>
+              <Filter.Region>{region}</Filter.Region>
               <Filter.Icon src="./assets/icon-arrow.png" />
             </Filter.Heading>
           </Filter.Frame>
           <Filter.ItemList>
             {REGIONS.map((region) => (
-              <Filter.Region
-                key={region}
-                onClick={() => setCurrentRegion(region)}
-              >
+              <Filter.Region key={region} onClick={() => handleFilter(region)}>
                 {region}
               </Filter.Region>
             ))}

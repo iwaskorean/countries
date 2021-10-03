@@ -1,23 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store';
+import { setPageNumber } from '../store/page';
 import { Card, Feature, List } from '../components';
 import { COUNTRIES_DATA } from '../fixtures/countries';
 import 'rc-pagination/assets/index.css';
 import Pagination from 'rc-pagination';
 
 export default function ListContainer() {
-  const [currentPage, setCurrentPage] = useState(1);
+  const { pageNumber } = useSelector((state: RootState) => state.page);
+  const dispatch = useDispatch();
+
   const [countriesPerPage] = useState(12);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, []);
+  const handlePageNumber = (num: number) => {
+    dispatch(setPageNumber(num));
+  };
 
-  const indexOfLast = currentPage * countriesPerPage;
+  const indexOfLast = pageNumber * countriesPerPage;
   const indexOfFirst = indexOfLast - countriesPerPage;
 
   const currentCountries = COUNTRIES_DATA.slice(indexOfFirst, indexOfLast);
 
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  const paginate = (num: number) => handlePageNumber(num);
 
   return (
     <>
@@ -55,7 +60,7 @@ export default function ListContainer() {
       </List>
       <Pagination
         className="pagination"
-        current={currentPage}
+        current={pageNumber}
         total={COUNTRIES_DATA.length}
         pageSize={countriesPerPage}
         onChange={paginate}

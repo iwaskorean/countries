@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store';
 import { Header, ThemeSwitch } from '../components';
 import * as ROUTES from '../constants/routes';
 
 export default function HeaderContainer() {
-  // ### Will replace hooks to redux
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const { theme } = useSelector((state: RootState) => state.theme);
 
   return (
     <>
