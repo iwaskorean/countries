@@ -4,26 +4,38 @@ import { REGIONS } from '../fixtures/regions';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { setFilter } from '../store/filter';
+import { setTerm } from '../store/term';
 
 export default function BrowseContainer() {
-  const [term, setTerm] = useState('');
-
   const { region } = useSelector((state: RootState) => state.filter);
+  const { term } = useSelector((state: RootState) => state.term);
+
+  const [currentTerm, setCurrentTerm] = useState(term);
+
   const dispatch = useDispatch();
 
   const handleFilter = (region: string) => {
     dispatch(setFilter(region));
   };
 
+  const handleTerm = (term: string) => {
+    dispatch(setTerm(term));
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    handleTerm(currentTerm);
+  };
+
   return (
     <>
       <SearchBar>
-        <SearchBar.Form onSubmit={(e) => e.preventDefault()}>
+        <SearchBar.Form onSubmit={(e) => handleSubmit(e)}>
           <SearchBar.Icon src="./assets/icon-search.png" />
           <SearchBar.Input
             type="text"
-            value={term}
-            onChange={({ target }) => setTerm(target.value)}
+            value={currentTerm}
+            onChange={({ target }) => setCurrentTerm(target.value)}
           />
         </SearchBar.Form>
         <Filter>

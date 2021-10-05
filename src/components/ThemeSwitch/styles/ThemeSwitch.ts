@@ -11,7 +11,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  // ### Theme
   font-size: 1rem;
   font-weight: var(--font-bold);
 
@@ -36,4 +35,5 @@ export const Text = styled.h3`
   cursor: pointer;
   font-size: 1rem;
   font-weight: var(--font-bold);
+  color: var(--text);
 `;

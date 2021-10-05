@@ -11,20 +11,20 @@ export const Title = styled.h2``;
 
 export const Name = styled.h3`
   font-size: 1.2rem;
-  color: var(--light-text);
+  color: var(--text);
   font-weight: var(--font-extra-bold);
   margin: 1.2rem 1rem;
 `;
 
 export const Text = styled.h4`
   font-size: 1rem;
-  color: var(--light-text);
+  color: var(--text);
   font-weight: var(--font-bold);
   margin-right: 0.5rem;
 `;
 
 export const PlainText = styled.h4`
-  color: var(--light-text);
+  color: var(--text);
   font-weight: var(--font-light);
   margin: 0;
 `;

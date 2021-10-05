@@ -9,9 +9,8 @@ export const Container = styled.div`
   /* position: relative; */
   transition: all 0.5s;
 
-  // ### Theme
-  background-color: var(--light-elements);
-  box-shadow: var(--light-box-shadow);
+  background-color: var(--background);
+  box-shadow: var(--box-shadow);
 `;
 
 export const Frame = styled.div`
@@ -21,18 +20,10 @@ export const Frame = styled.div`
   justify-content: space-between;
 `;
 
-// export const Title = styled.h2`
-//   // ### Theme
-//   font-size: 1.5rem;
-//   font-weight: var(--font-extra-bold);
-//   margin: 1rem 0;
-// `;
-
 export const Logo = styled(ReactRouterLink)`
-  // ### Theme
   font-size: 1.5rem;
   font-weight: var(--font-extra-bold);
   margin: 1rem 0;
   text-decoration: none;
-  color: var(--light-text);
+  color: var(--text);
 `;

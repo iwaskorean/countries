@@ -3,11 +3,11 @@ import styled from 'styled-components/macro';
 export const Container = styled.div`
   width: 16rem;
   height: 21rem;
-  background-color: var(--light-elements);
+  background-color: var(--elements);
   margin: 2.5rem 2rem;
   padding-bottom: 2rem;
   border-radius: 10px;
-  box-shadow: var(--light-box-shadow);
+  box-shadow: var(--box-shadow);
   cursor: pointer;
   transition: all 0.3s;
   &:hover {

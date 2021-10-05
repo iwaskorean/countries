@@ -5,18 +5,18 @@ export const List = styled.div`
   width: 15rem;
   position: absolute;
   z-index: 1000;
-  box-shadow: var(--light-box-shadow);
+  box-shadow: var(--box-shadow);
 
   // ### Theme
-  background-color: var(--light-elements);
+  background-color: var(--elements);
 `;
 
 export const Container = styled.div`
   width: 15rem;
   font-weight: $font-bold;
   color: var(--text);
-  background-color: var(--light-elements);
-  box-shadow: var(--light-box-shadow);
+  background-color: var(--elements);
+  box-shadow: var(--box-shadow);
 
   &:hover {
     ${List} {
@@ -36,9 +36,9 @@ export const Heading = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--light-elements);
+  background-color: var(--elements);
   font-weight: var(--font-bold);
-  color: var(--light-text);
+  color: var(--text);
   cursor: pointer;
   transition: all 0.1s;
   &:hover {

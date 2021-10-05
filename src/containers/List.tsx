@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { setPageNumber } from '../store/page';
@@ -9,9 +9,21 @@ import Pagination from 'rc-pagination';
 
 export default function ListContainer() {
   const { pageNumber } = useSelector((state: RootState) => state.page);
+  const { region } = useSelector((state: RootState) => state.filter);
   const dispatch = useDispatch();
 
+  const [filteredCountries, setFilteredCountries] = useState(COUNTRIES_DATA);
   const [countriesPerPage] = useState(12);
+
+  useEffect(() => {
+    if (region === 'Filter by Region') {
+      setFilteredCountries(COUNTRIES_DATA);
+    } else {
+      setFilteredCountries(
+        COUNTRIES_DATA.filter((country) => country.region === region)
+      );
+    }
+  }, [region]);
 
   const handlePageNumber = (num: number) => {
     dispatch(setPageNumber(num));
@@ -20,7 +32,7 @@ export default function ListContainer() {
   const indexOfLast = pageNumber * countriesPerPage;
   const indexOfFirst = indexOfLast - countriesPerPage;
 
-  const currentCountries = COUNTRIES_DATA.slice(indexOfFirst, indexOfLast);
+  const currentCountries = filteredCountries.slice(indexOfFirst, indexOfLast);
 
   const paginate = (num: number) => handlePageNumber(num);
 
