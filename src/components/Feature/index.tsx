@@ -23,8 +23,14 @@ Feature.Group = function FeatureGroup({
   return <Group>{children}</Group>;
 };
 
-Feature.Title = function FeatureTitle({ children }: { children: string }) {
-  return <Title>{children}</Title>;
+Feature.Title = function FeatureTitle({
+  children,
+  onClick,
+}: {
+  children: string;
+  onClick?: () => void;
+}) {
+  return <Title onClick={onClick}>{children}</Title>;
 };
 
 Feature.Name = function FeatureName({ children }: { children: string }) {

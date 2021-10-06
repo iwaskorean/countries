@@ -35,7 +35,9 @@ export default function BrowseContainer() {
           <SearchBar.Input
             type="text"
             value={currentTerm}
+            // value={term}
             onChange={({ target }) => setCurrentTerm(target.value)}
+            // onChange={({ target }) => handleTerm(target.value)}
           />
         </SearchBar.Form>
         <Filter>

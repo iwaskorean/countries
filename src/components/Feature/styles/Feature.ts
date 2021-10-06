@@ -7,7 +7,12 @@ export const Group = styled.div`
   margin: 0.5rem 1rem;
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.h2`
+  color: ${({ theme }) => theme.color};
+  &:hover {
+    cursor: ${({ onClick }) => (onClick ? 'pointer' : 'none')};
+  }
+`;
 
 export const Name = styled.h3`
   font-size: 1.2rem;
