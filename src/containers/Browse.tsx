@@ -16,6 +16,7 @@ export default function BrowseContainer() {
 
   const handleFilter = (region: string) => {
     dispatch(setFilter(region));
+    dispatch(setTerm(''));
   };
 
   const handleTerm = (term: string) => {

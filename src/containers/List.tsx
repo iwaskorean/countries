@@ -16,6 +16,7 @@ export default function ListContainer() {
   const dispatch = useDispatch();
 
   const [filteredCountries, setFilteredCountries] = useState(COUNTRIES_DATA);
+  const [list, setList] = useState(filteredCountries);
   const [countriesPerPage] = useState(12);
 
   useEffect(() => {
@@ -26,29 +27,23 @@ export default function ListContainer() {
         COUNTRIES_DATA.filter((country) => country.region === region)
       );
     }
+  }, [region]);
 
+  useEffect(() => {
+    setList(filteredCountries);
+  }, [filteredCountries]);
+
+  useEffect(() => {
     if (term) {
-      if (region === FILTER_TEXT) {
-        setFilteredCountries(
-          COUNTRIES_DATA.filter((country) =>
-            country.name.common.toLowerCase().includes(term.toLowerCase())
-          )
-        );
-      } else {
-        if (region === FILTER_TEXT) {
-          setFilteredCountries(COUNTRIES_DATA);
-        } else {
-          setFilteredCountries(
-            filteredCountries.filter((country) =>
-              country.name.common.toLowerCase().includes(term.toLowerCase())
-            )
-          );
-        }
-      }
+      setList(
+        filteredCountries.filter((country) =>
+          country.name.common.toLowerCase().includes(term.toLowerCase())
+        )
+      );
+    } else {
+      setList(filteredCountries);
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [region, term]);
+  }, [filteredCountries, term]);
 
   const handlePageNumber = (num: number) => {
     dispatch(setPageNumber(num));
@@ -61,7 +56,7 @@ export default function ListContainer() {
   const indexOfLast = pageNumber * countriesPerPage;
   const indexOfFirst = indexOfLast - countriesPerPage;
 
-  const currentCountries = filteredCountries.slice(indexOfFirst, indexOfLast);
+  const currentCountries = list.slice(indexOfFirst, indexOfLast);
 
   const paginate = (num: number) => handlePageNumber(num);
 
@@ -108,7 +103,7 @@ export default function ListContainer() {
       <Pagination
         className="pagination"
         current={pageNumber}
-        total={filteredCountries.length}
+        total={list.length}
         pageSize={countriesPerPage}
         onChange={paginate}
       />
