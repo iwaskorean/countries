@@ -66,7 +66,7 @@ export default function ListContainer() {
         {currentCountries.length > 0 ? (
           currentCountries.map((country, i) => {
             return (
-              <Card key={i}>
+              <Card key={i} country={country}>
                 <Card.Flag src={country.flags[0]} alt={country.flag} />
                 <Card.Contents>
                   <Feature.Name>{country.name.common}</Feature.Name>

@@ -1,11 +1,24 @@
 import { Container, Flag, FlagImage, Group } from './styles/Card';
+import { Link } from 'react-router-dom';
 
 export default function Card({
   children,
+  country,
 }: {
   children: JSX.Element | JSX.Element[];
+  // Have to fix type annotation for router props
+  country: any;
 }) {
-  return <Container>{children}</Container>;
+  return (
+    <>
+      <Link
+        to={`/detail/${country.altSpellings[0]}`}
+        style={{ textDecoration: 'none' }}
+      >
+        <Container>{children}</Container>
+      </Link>
+    </>
+  );
 }
 
 Card.Item = function CardItem({
