@@ -20,10 +20,7 @@ export default function App() {
             <Route path={ROUTES.HOME} exact>
               <Home />
             </Route>
-            <Route
-              path={`${ROUTES.DETAIL}/:alpha3Code`}
-              render={(routerProps) => <Detail />}
-            ></Route>
+            <Route path={ROUTES.DETAIL} component={Detail}></Route>
           </Switch>
         </Router>
       </ThemeProvider>

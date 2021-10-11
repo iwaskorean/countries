@@ -12,7 +12,7 @@ export default function Card({
   return (
     <>
       <Link
-        to={`/detail/${country.altSpellings[0]}`}
+        to={`/detail?code=${country.altSpellings[0]}`}
         style={{ textDecoration: 'none' }}
       >
         <Container>{children}</Container>
