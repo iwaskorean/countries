@@ -5,3 +5,5 @@ export { default as Filter } from './Filter';
 export { default as Card } from './Card';
 export { default as Feature } from './Feature';
 export { default as List } from './List';
+export { default as Button } from './Button';
+export { default as Frame } from './Frame';
