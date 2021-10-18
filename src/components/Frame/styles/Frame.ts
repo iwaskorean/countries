@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Frame = styled.div``;
+export const Frame = styled.div`
+  width: 100%;
+`;
 
 export const Group = styled.div``;
 

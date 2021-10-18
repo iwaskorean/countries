@@ -5,6 +5,7 @@ import {
   Name,
   Text,
   PlainText,
+  Heading,
 } from './styles/Feature';
 
 export default function Feature({
@@ -23,6 +24,16 @@ Feature.Group = function FeatureGroup({
   return <Group>{children}</Group>;
 };
 
+Feature.Heading = function FeatureHeading({
+  children,
+  onClick,
+}: {
+  children: string;
+  onClick?: () => void;
+}) {
+  return <Heading onClick={onClick}>{children}</Heading>;
+};
+
 Feature.Title = function FeatureTitle({
   children,
   onClick,
@@ -33,7 +44,11 @@ Feature.Title = function FeatureTitle({
   return <Title onClick={onClick}>{children}</Title>;
 };
 
-Feature.Name = function FeatureName({ children }: { children: string }) {
+Feature.Name = function FeatureName({
+  children,
+}: {
+  children: string | number;
+}) {
   return <Name>{children}</Name>;
 };
 

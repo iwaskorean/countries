@@ -4,7 +4,8 @@ export const Container = styled.div``;
 
 export const Group = styled.div`
   display: flex;
-  margin: 0.5rem 1rem;
+  align-items: center;
+  margin: 1rem 1rem;
 `;
 
 export const Title = styled.h2`
@@ -12,6 +13,15 @@ export const Title = styled.h2`
   &:hover {
     cursor: ${({ onClick }) => (onClick ? 'pointer' : 'none')};
   }
+`;
+
+export const Heading = styled.h1`
+  font-size: 3.5rem;
+  color: ${({ theme }) => theme.color};
+  &:hover {
+    cursor: ${({ onClick }) => (onClick ? 'pointer' : 'none')};
+  }
+  margin: 2rem 1rem;
 `;
 
 export const Name = styled.h3`
@@ -29,6 +39,8 @@ export const Text = styled.h4`
 `;
 
 export const PlainText = styled.h4`
+  display: flex;
+  flex-wrap: wrap;
   color: var(--text);
   font-weight: var(--font-light);
   margin: 0;

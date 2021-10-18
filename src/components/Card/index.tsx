@@ -12,7 +12,8 @@ export default function Card({
   return (
     <>
       <Link
-        to={`/detail?code=${country.altSpellings[0]}`}
+        // to={`/detail?code=${country.altSpellings[0]}`}
+        to={`/detail?code=${country.cca3}`}
         style={{ textDecoration: 'none' }}
       >
         <Container>{children}</Container>
