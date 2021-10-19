@@ -20,14 +20,18 @@ Button.Content = function ButtonContent({
   children,
   disabled,
   primary,
+  onClick,
 }: {
   children: string;
   primary?: string;
   disabled?: boolean;
+  onClick?: () => void;
 }) {
   return disabled ? (
     <Content disabled>{children}</Content>
   ) : (
-    <Content primary={primary}>{children}</Content>
+    <Content primary={primary} onClick={onClick}>
+      {children}
+    </Content>
   );
 };

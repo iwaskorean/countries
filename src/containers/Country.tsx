@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import { COUNTRIES_DATA } from '../fixtures/countries';
 import { Country } from '../types';
 import { Button, Frame, Feature } from '../components';
@@ -17,11 +18,19 @@ export default function CountryContainer({
     setCountry(currentCountry[0]);
   }, [countryCode]);
 
+  const history = useHistory();
+
+  const handleBackButton = () => {
+    history.goBack();
+  };
+
   return (
     <>
       <Button>
         <Button.Group>
-          <Button.Content primary="primary">← Back</Button.Content>
+          <Button.Content onClick={handleBackButton} primary="primary">
+            Back
+          </Button.Content>
         </Button.Group>
       </Button>
 
@@ -50,17 +59,19 @@ export default function CountryContainer({
             <Feature.Group>
               <Feature.Property>Languages: </Feature.Property>
               <Feature.Value>
-                {Object.values(country.languages).map((lan, i) =>
-                  i === Object.values(country.languages).length - 1
-                    ? lan
-                    : lan + ', '
-                )}
+                {country.languages
+                  ? Object.values(country.languages).map((lan, i) =>
+                      i === Object.values(country.languages).length - 1
+                        ? lan
+                        : lan + ', '
+                    )
+                  : '-'}
               </Feature.Value>
             </Feature.Group>
             <Feature.Group>
-              <Feature.Property>Lat / Lng: </Feature.Property>
+              <Feature.Property>Latitude / Longitude: </Feature.Property>
               <Feature.Value>
-                {country.latlng[0]} / {country.latlng[1]}
+                {country.latlng[0].toFixed(2)} / {country.latlng[1].toFixed(2)}
               </Feature.Value>
             </Feature.Group>
             <Feature.Group>
