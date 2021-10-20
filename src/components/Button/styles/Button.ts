@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ButtonProps {
   primary?: string;
+  disabled?: boolean;
 }
 
 export const Container = styled.div``;
@@ -18,7 +19,7 @@ export const Content = styled.button<ButtonProps>`
   border-radius: 3px;
   margin: ${({ primary }) =>
     primary === 'primary' ? '1.5rem 0.5rem 0 0.5rem ' : '0.3rem'};
-  cursor: pointer;
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
 
   &:active {
     opacity: 0.7;

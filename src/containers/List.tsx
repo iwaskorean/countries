@@ -67,7 +67,10 @@ export default function ListContainer() {
           currentCountries.map((country, i) => {
             return (
               <Card key={i} country={country}>
-                <Card.Flag src={country.flags[0]} alt={country.flag} />
+                <Card.Flag
+                  src={`https://flagcdn.com/256x192/${country.cca2.toLowerCase()}.png`}
+                  alt={country.flag}
+                />
                 <Card.Contents>
                   <Feature.Name>{country.name.common}</Feature.Name>
                   <Feature.Group>

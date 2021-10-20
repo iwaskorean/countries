@@ -45,3 +45,5 @@ export const PlainText = styled.h4`
   font-weight: var(--font-light);
   margin: 0;
 `;
+
+export const Image = styled.img``;

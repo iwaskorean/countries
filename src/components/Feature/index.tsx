@@ -6,6 +6,7 @@ import {
   Text,
   PlainText,
   Heading,
+  Image,
 } from './styles/Feature';
 
 export default function Feature({
@@ -66,4 +67,14 @@ Feature.Value = function FeatureValue({
   children?: string | string[];
 }) {
   return <PlainText>{children}</PlainText>;
+};
+
+Feature.Image = function FeatureImage({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  return <Image src={src} alt={alt} />;
 };
