@@ -12,7 +12,7 @@ import {
 export default function Feature({
   children,
 }: {
-  children: JSX.Element | JSX.Element[];
+  children?: JSX.Element | JSX.Element[];
 }) {
   return <Container>{children}</Container>;
 }
@@ -64,7 +64,8 @@ Feature.Property = function FeatureProperty({
 Feature.Value = function FeatureValue({
   children,
 }: {
-  children?: string | string[];
+  // Have to fix any type
+  children?: string | string[] | any;
 }) {
   return <PlainText>{children}</PlainText>;
 };
@@ -73,8 +74,8 @@ Feature.Image = function FeatureImage({
   src,
   alt,
 }: {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
 }) {
   return <Image src={src} alt={alt} />;
 };
