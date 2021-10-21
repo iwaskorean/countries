@@ -4,6 +4,7 @@ import { useHistory } from 'react-router';
 import { COUNTRIES_DATA } from '../fixtures/countries';
 import { CountryType } from '../types';
 import { Button, Frame, Feature } from '../components';
+import { getItems } from '../utils/getItems';
 
 export default function CountryContainer({
   countryCode,
@@ -61,27 +62,11 @@ export default function CountryContainer({
               </Feature.Group>
               <Feature.Group>
                 <Feature.Property>Capital City: </Feature.Property>
-                <Feature.Value>
-                  {country.capital
-                    ? Object.values(country.capital).map((cap, i) =>
-                        i === Object.values(country.capital).length - 1
-                          ? cap
-                          : cap + ', '
-                      )
-                    : '-'}
-                </Feature.Value>
+                <Feature.Value>{getItems(country.capital)}</Feature.Value>
               </Feature.Group>
               <Feature.Group>
                 <Feature.Property>Languages: </Feature.Property>
-                <Feature.Value>
-                  {country.languages
-                    ? Object.values(country.languages).map((lan, i) =>
-                        i === Object.values(country.languages).length - 1
-                          ? lan
-                          : lan + ', '
-                      )
-                    : '-'}
-                </Feature.Value>
+                <Feature.Value>{getItems(country.languages)}</Feature.Value>
               </Feature.Group>
               <Feature.Group>
                 <Feature.Property>Latitude / Longitude: </Feature.Property>
