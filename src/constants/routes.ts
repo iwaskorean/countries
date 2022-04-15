@@ -1,2 +1,4 @@
-export const HOME = '/';
-export const DETAIL = '/detail';
+export const ROUTES = {
+  HOME: '/',
+  DETAIL: '/detail',
+};

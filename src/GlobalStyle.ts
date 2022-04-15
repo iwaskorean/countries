@@ -26,9 +26,8 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 html {
-  width:100%;
-  min-height: 100vh;
   font-family: 'Nunito Sans', sans-serif;
+  
   @media(min-width:1024px) {
     font-size: 18px;
   }
@@ -42,6 +41,8 @@ html {
 
 body {
   background-color: var(--background);
+  width:100%;
+  min-height: 100vh;
 }
 
 .pagination {

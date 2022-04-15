@@ -1,13 +1,13 @@
-import HeaderContainer from '../containers/Header';
-import BrowseContainer from '../containers/Browse';
-import ListContainer from '../containers/List';
+import { Header } from '../components';
+import BrowserLayout from '../layouts/Browser';
+import CountriesListLayout from '../layouts/CountriesList';
 
 export default function Home() {
   return (
     <>
-      <HeaderContainer />
-      <BrowseContainer />
-      <ListContainer />
+      <Header />
+      <BrowserLayout />
+      <CountriesListLayout />
     </>
   );
 }
