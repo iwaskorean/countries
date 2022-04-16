@@ -6,7 +6,7 @@ interface State {
 }
 
 const initialState: State = {
-  region: 'Filter by Region',
+  region: '',
 };
 
 const regionSlice = createSlice({

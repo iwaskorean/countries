@@ -4,7 +4,9 @@ import styled from 'styled-components';
 interface IconProps extends ImgHTMLAttributes<HTMLImageElement> {}
 
 export default function Icon({ ...props }: IconProps) {
-  return <StyledIcon src={'./assets/icon-search.png'} {...props} />;
+  return (
+    <StyledIcon src={'./assets/icon-search.png'} alt='search icon' {...props} />
+  );
 }
 
 const StyledIcon = styled.img`

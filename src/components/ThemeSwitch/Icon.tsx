@@ -17,6 +17,7 @@ export default function Icon({ theme, ...props }: IconProps) {
 
 const StyledIcon = styled.img`
   width: 1rem;
+  height: 1rem;
   margin-right: 0.5rem;
   transition: transform 0.3s;
   &:hover {

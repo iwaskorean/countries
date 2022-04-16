@@ -6,7 +6,7 @@ import styled from 'styled-components';
 export default function ThemeSwitch({ onClick }: { onClick: () => void }) {
   const { theme } = useSelector((state: RootState) => state.theme);
   return (
-    <Container onClick={onClick}>
+    <Container onClick={onClick} role='button' tabIndex={0}>
       <Icon theme={theme} />
       <Text>{theme === 'light' ? 'Dark' : 'Light'}</Text>
     </Container>

@@ -27,8 +27,10 @@ export const GlobalStyle = createGlobalStyle`
 
 html {
   font-family: 'Nunito Sans', sans-serif;
-  
-  @media(min-width:1024px) {
+  @media (min-width: 1681px) {
+    font-size:24px;
+  }
+  @media(max-width: 1024px) {
     font-size: 18px;
   }
   @media (max-width: 768px) {
@@ -43,24 +45,5 @@ body {
   background-color: var(--background);
   width:100%;
   min-height: 100vh;
-}
-
-.pagination {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  margin: 3rem 0;
-
-  > * {
-    font-size: 1rem;
-  }
-
-  li {
-    width:2.5rem;
-    height: 2.5rem;
-    display:flex;
-    align-items:center;
-    justify-content: center;
-  }
 }
 `;

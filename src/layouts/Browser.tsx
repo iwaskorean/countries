@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
-import { Dropdown, Form } from '../components';
+import { Dropdown, Flex, Form } from '../components';
 import SearchBar from '../components/SearchBar/SearchBar';
 import { REGIONS } from '../constants/regions';
 import { RootState, setRegion, setPageNumber, setTerm } from '../store';
@@ -9,14 +8,12 @@ import { RootState, setRegion, setPageNumber, setTerm } from '../store';
 export default function BrowserLayout() {
   const { region } = useSelector((state: RootState) => state.region);
   const { term } = useSelector((state: RootState) => state.term);
-
   const [currentTerm, setCurrentTerm] = useState(term);
 
   const dispatch = useDispatch();
 
   const handleSelectRegion = (region: string) => {
     dispatch(setRegion(region));
-    dispatch(setTerm(''));
     dispatch(setPageNumber(1));
   };
 
@@ -30,7 +27,14 @@ export default function BrowserLayout() {
   };
 
   return (
-    <Layout>
+    <Flex
+      style={{
+        width: '90%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        margin: '0 auto',
+      }}
+    >
       <Form onSubmit={handleSubmit}>
         <SearchBar
           type='text'
@@ -39,18 +43,10 @@ export default function BrowserLayout() {
         />
       </Form>
       <Dropdown
-        label={region}
+        label={region || 'Filter by region'}
         items={Object.values(REGIONS)}
         handleSelectItem={handleSelectRegion}
       />
-    </Layout>
+    </Flex>
   );
 }
-
-const Layout = styled.div`
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;

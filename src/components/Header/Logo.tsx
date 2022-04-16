@@ -1,4 +1,3 @@
-import { LinkHTMLAttributes } from 'react';
 import { Link as ReactRouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 

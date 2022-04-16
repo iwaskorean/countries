@@ -17,19 +17,27 @@ export default function Dropdown({
   const [isVisible, setIsVisible] = useState(false);
 
   const handleItemClick = (item: string) => {
-    handleSelectItem(item);
+    handleSelectItem(item === 'All' ? '' : item);
     setIsVisible(false);
   };
 
   return (
     <Wrapper {...props}>
-      <LabelWrapper onClick={() => setIsVisible((prev) => !prev)}>
+      <LabelWrapper
+        onClick={() => setIsVisible((prev) => !prev)}
+        role='button'
+        tabIndex={0}
+      >
         <Label>{label}</Label>
-        <Icon isVisible={isVisible} src='./assets/icon-arrow.png'></Icon>
+        <Icon
+          isVisible={isVisible}
+          src='./assets/icon-arrow.png'
+          alt='arrow icon'
+        ></Icon>
       </LabelWrapper>
       <List isVisible={isVisible}>
         {items.map((item, i) => (
-          <Item key={i} onClick={() => handleItemClick(item)}>
+          <Item key={i} onClick={() => handleItemClick(item)} role='tab'>
             {item}
           </Item>
         ))}
