@@ -42,6 +42,7 @@ const Wrapper = styled.article`
   }
   overflow: hidden;
   justify-self: center;
+  margin: 0 auto;
 `;
 
 const Title = styled.h1`

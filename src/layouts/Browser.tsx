@@ -6,8 +6,9 @@ import { REGIONS } from '../constants/regions';
 import { RootState, setRegion, setPageNumber, setTerm } from '../store';
 
 export default function BrowserLayout() {
-  const { region } = useSelector((state: RootState) => state.region);
-  const { term } = useSelector((state: RootState) => state.term);
+  const { region, term } = useSelector((state: RootState) => {
+    return { region: state.region.region, term: state.term.term };
+  });
   const [currentTerm, setCurrentTerm] = useState(term);
 
   const dispatch = useDispatch();
@@ -15,6 +16,8 @@ export default function BrowserLayout() {
   const handleSelectRegion = (region: string) => {
     dispatch(setRegion(region));
     dispatch(setPageNumber(1));
+    handleTerm('');
+    setCurrentTerm('');
   };
 
   const handleTerm = (term: string) => {

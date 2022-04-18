@@ -16,3 +16,22 @@ export const LIST_COUNTRIES = gql`
     }
   }
 `;
+
+export const DETAIL_COUNTRY = gql`
+  query ($alpha3Code: String!) {
+    countries(alpha3Code: $alpha3Code) {
+      edges {
+        node {
+          name
+          capital
+          region
+          flag
+          subregion
+          population
+          borders
+          nativeName
+        }
+      }
+    }
+  }
+`;

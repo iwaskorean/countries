@@ -12,6 +12,7 @@ import {
   Pagination,
   Spinner,
 } from '../components';
+import { Link } from 'react-router-dom';
 
 interface ICountry {
   node: {
@@ -32,10 +33,13 @@ interface ICountriesList {
 
 export default function CountriesListLayout() {
   const [countriesPerPage] = useState(12);
-
-  const { pageNumber } = useSelector((state: RootState) => state.page);
-  const { region } = useSelector((state: RootState) => state.region);
-  const { term } = useSelector((state: RootState) => state.term);
+  const { pageNumber, region, term } = useSelector((state: RootState) => {
+    return {
+      pageNumber: state.page.pageNumber,
+      region: state.region.region,
+      term: state.term.term,
+    };
+  });
 
   const { data, loading, error } = useQuery<ICountriesList>(LIST_COUNTRIES, {
     variables: { region, term },
@@ -95,17 +99,22 @@ export default function CountriesListLayout() {
     >
       <Grid style={{ margin: '3rem 0' }}>
         {currentCountries?.map(({ node }) => (
-          <Card
+          <Link
+            to={`/detail/?code=${node.alpha3Code}`}
             key={node.alpha3Code}
-            thumbnail={node.flag}
-            details={[
-              { region: node.region },
-              { subregion: node.subregion },
-              { capital: node.capital },
-            ]}
+            style={{ textDecoration: 'none' }}
           >
-            {node.name}
-          </Card>
+            <Card
+              thumbnail={node.flag}
+              details={[
+                { region: node.region },
+                { subregion: node.subregion },
+                { capital: node.capital },
+              ]}
+            >
+              {node.name}
+            </Card>
+          </Link>
         ))}
       </Grid>
       <Pagination
