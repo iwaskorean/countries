@@ -8,7 +8,7 @@ export default function SearchBar({ ...props }: SearchBarProps) {
   return (
     <Wrapper>
       <Icon />
-      <Input {...props} />
+      <Input {...props} aria-label='search' />
     </Wrapper>
   );
 }

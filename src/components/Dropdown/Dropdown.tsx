@@ -25,7 +25,7 @@ export default function Dropdown({
     <Wrapper {...props}>
       <LabelWrapper
         onClick={() => setIsVisible((prev) => !prev)}
-        role='button'
+        role='select'
         tabIndex={0}
       >
         <Label>{label}</Label>
@@ -33,11 +33,11 @@ export default function Dropdown({
           isVisible={isVisible}
           src='./assets/icon-arrow.png'
           alt='arrow icon'
-        ></Icon>
+        />
       </LabelWrapper>
       <List isVisible={isVisible}>
         {items.map((item, i) => (
-          <Item key={i} onClick={() => handleItemClick(item)} role='tab'>
+          <Item key={i} onClick={() => handleItemClick(item)}>
             {item}
           </Item>
         ))}

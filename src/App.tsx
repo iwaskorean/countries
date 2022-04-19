@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ROUTES } from './constants/routes';
 import Home from './pages/Home';
 import Detail from './pages/Detail';
+import NotFound from './pages/NotFound';
 
 export default function App() {
   const { theme } = useSelector((state: RootState) => state.theme);
@@ -19,6 +20,7 @@ export default function App() {
           <Routes>
             <Route path={ROUTES.HOME} element={<Home />} />
             <Route path={ROUTES.DETAIL} element={<Detail />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </Router>
       </ThemeProvider>

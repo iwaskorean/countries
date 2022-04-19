@@ -1,6 +1,6 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
+import { Frame, Heading, Text } from '../index';
 import styled from 'styled-components';
-import Frame from '../Layout/Frame';
 
 interface CardProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {
   thumbnail: string;
@@ -17,7 +17,7 @@ export default function Card({
     <Wrapper {...props}>
       <Thumbnail src={thumbnail} alt='flag' />
       <Frame style={{ padding: '1rem', overflowY: 'scroll' }}>
-        <Title>{children}</Title>
+        <Heading>{children}</Heading>
         {details?.map((detail, i) => (
           <Text key={i}>
             {`${Object.keys(detail)}: ${Object.values(detail)[0] || '-'}`}
@@ -42,20 +42,6 @@ const Wrapper = styled.article`
   }
   overflow: hidden;
   justify-self: center;
-  margin: 0 auto;
-`;
-
-const Title = styled.h1`
-  color: var(--text);
-  font-size: 1.8rem;
-  margin: 0.5rem 0;
-  line-height: 1.8rem;
-`;
-
-const Text = styled.p`
-  color: var(--text);
-  font-size: 1rem;
-  margin: 0.3rem 0;
 `;
 
 const Thumbnail = styled.img`

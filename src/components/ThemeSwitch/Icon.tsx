@@ -9,7 +9,7 @@ export default function Icon({ theme, ...props }: IconProps) {
   return (
     <StyledIcon
       {...props}
-      src={`./assets/icon-${theme === 'light' ? 'moon' : 'sun'}.png`}
+      src={`assets/icon-${theme === 'light' ? 'moon' : 'sun'}.png`}
       alt='theme-icon'
     />
   );

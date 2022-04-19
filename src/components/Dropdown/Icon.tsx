@@ -9,6 +9,7 @@ export default function Icon({
 
 const StyledIcon = styled.img`
   width: 1rem;
+  height: 1rem;
   margin: 1rem;
   transform: rotate(180deg);
   transition: transform 0.1s;

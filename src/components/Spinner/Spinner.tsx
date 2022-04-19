@@ -1,7 +1,8 @@
+import { HTMLAttributes } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-export default function Spinner() {
-  return <StyledSpinner />;
+export default function Spinner({ ...props }: HTMLAttributes<HTMLDivElement>) {
+  return <StyledSpinner {...props} />;
 }
 
 const spin = keyframes`

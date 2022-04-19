@@ -11,7 +11,7 @@ export default function ThemeSwitch({
   return (
     <Container role='button' tabIndex={0} {...props}>
       <Icon theme={theme} />
-      <Text>{theme === 'light' ? 'Dark' : 'Light'}</Text>
+      <Text>{theme === 'light' ? 'Dark' : 'Light'} Mode</Text>
     </Container>
   );
 }

@@ -8,4 +8,9 @@ export default function Text({
   return <Wrapper {...props}>{children}</Wrapper>;
 }
 
-const Wrapper = styled.p``;
+const Wrapper = styled.p`
+  color: var(--text);
+  & + & {
+    margin-top: 0.2rem;
+  }
+`;

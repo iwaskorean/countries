@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store';
 import { setTheme } from '../../store/theme';
 import ThemeSwitch from '../ThemeSwitch/ThemeSwitch';
-import styled from 'styled-components';
 import Logo from './Logo';
+import styled from 'styled-components';
 
 interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 

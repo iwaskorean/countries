@@ -97,12 +97,21 @@ export default function CountriesListLayout() {
         justifyContent: 'space-between',
       }}
     >
-      <Grid style={{ margin: '3rem 0' }}>
+      <Grid
+        style={{
+          margin: '2rem 0',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(20rem, 1fr))',
+        }}
+      >
         {currentCountries?.map(({ node }) => (
           <Link
-            to={`/detail/?code=${node.alpha3Code}`}
+            to={`/detail?code=${node.alpha3Code}`}
             key={node.alpha3Code}
-            style={{ textDecoration: 'none' }}
+            style={{
+              textDecoration: 'none',
+              width: 'max-content',
+              margin: '0 auto',
+            }}
           >
             <Card
               thumbnail={node.flag}

@@ -8,4 +8,8 @@ export default function Title({
   return <Wrapper {...props}>{children}</Wrapper>;
 }
 
-const Wrapper = styled.h1``;
+const Wrapper = styled.h1`
+  color: var(--text);
+  line-height: 1;
+  margin: 1rem 0;
+`;
